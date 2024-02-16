@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
+import useLocalStorage from '../hook/useLocalStorage'
 
 // 5. The reduceer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
@@ -47,6 +48,8 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   // 4. Sets up the app state. takes a reducer, and an initial state
   const [state, dispatch] = useReducer(AppReducer, initialState);
+
+
 
   // 5. Returns our context. Pass in the values we want to expose
   return (
