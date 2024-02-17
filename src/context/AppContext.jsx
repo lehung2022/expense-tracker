@@ -47,7 +47,6 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   // 4. Sets up the app state. takes a reducer, and an initial state
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  // Save the data to local storage
 
   // 5. Returns our context. Pass in the values we want to expose
   return (

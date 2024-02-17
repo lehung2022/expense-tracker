@@ -26,6 +26,7 @@ const AddExpenseForm = () => {
     setCost("");
   };
 
+  // Save the data to local storage
   useEffect(() => {
     localStorage.setItem(name, JSON.stringify(name));
   }, [name, setName]);
