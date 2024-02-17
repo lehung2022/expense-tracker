@@ -1,11 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
+import useLocalStorage from "use-local-storage";
 
 const AddExpenseForm = () => {
   const { dispatch } = useContext(AppContext);
 
-  const [name, setName] = useState("");
+  const [name, setName] = useLocalStorage("name", "");
   const [cost, setCost] = useState("");
 
   const onSubmit = (event) => {
@@ -24,6 +25,10 @@ const AddExpenseForm = () => {
     setName("");
     setCost("");
   };
+
+  useEffect(() => {
+    localStorage.setItem(name, JSON.stringify(name));
+  }, [name, setName]);
 
   return (
     <form onSubmit={onSubmit}>
@@ -53,7 +58,13 @@ const AddExpenseForm = () => {
       </div>
       <div className="row mt-3">
         <div className="col-sm">
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={() => {
+              setName(name);
+            }}
+          >
             Save
           </button>
         </div>
