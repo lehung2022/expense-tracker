@@ -1,0 +1,4 @@
+Solution:
+After Refresh Show The Data From LocalStorage
+https://michalkotowski.pl/writings/how-to-refresh-a-react-component-when-local-storage-has-changed
+https://stackoverflow.com/questions/72222728/why-is-localstorage-getting-cleared-whenever-i-refresh-the-page
